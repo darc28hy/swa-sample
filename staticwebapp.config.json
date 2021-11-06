@@ -1,0 +1,27 @@
+{
+  "auth": {
+    "identityProviders": {
+      "azureActiveDirectory": {
+        "registration": {
+          "openIdIssuer": "https://login.microsoftonline.com/b81be725-9006-42bc-854b-dd0f113dc227/v2.0",
+          "clientIdSettingName": "NEXT_PUBLIC_AAD_CLIENT_ID",
+          "clientSecretSettingName": "NEXT_PUBLIC_AAD_CLIENT_SECRET"
+        }
+      }
+    }
+  },
+  "routes": [
+    {
+      "route": "/private/*",
+      "allowedRoles": ["authenticated"]
+    },
+    {
+      "route": "/login",
+      "redirect": "/.auth/login/aad"
+    },
+    {
+      "route": "/logout",
+      "redirect": "/.auth/logout"
+    }
+  ]
+}
