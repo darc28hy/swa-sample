@@ -1,0 +1,75 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2021,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "import"
+  ],
+  "rules": {
+    "no-unused-vars": "off",
+
+    // https://github.com/typescript-eslint/typescript-eslint/tree/v4.6.1/packages/eslint-plugin/docs/rules
+    "@typescript-eslint/no-unused-vars": ["off"],
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+
+    // https://github.com/yannickcr/eslint-plugin-react/tree/master/docs/rules
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": ["off", { "ignore": ["children"] }],
+
+    // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/order.md
+    "import/order": ["warn", {
+      "groups": [
+        "builtin",
+        "external",
+        "parent",
+        "sibling",
+        "index",
+        "object",
+        "type"
+      ],
+      "pathGroups": [
+        {
+          "pattern": "react*",
+          "group": "builtin",
+          "position": "before"
+        },
+        {
+          "pattern": "next/*",
+          "group": "external",
+          "position": "before"
+        },
+        {
+          "pattern": "@/**",
+          "group": "index",
+          "position": "after"
+        }
+      ],
+      "pathGroupsExcludedImportTypes": ["react*", "next/*"],
+      "newlines-between": "never",
+      "alphabetize": {
+        "order": "asc",
+        "caseInsensitive": true
+      }
+    }]
+  }
+}
