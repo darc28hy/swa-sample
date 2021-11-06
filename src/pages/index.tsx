@@ -28,6 +28,10 @@ const Index = () => (
             Next.js <LinkIcon />
           </ChakraLink>
         </ListItem>
+        <ListItem>
+          <ListIcon as={CheckCircleIcon} color='green.500' />
+          <ChakraLink href='/private'>Private Page</ChakraLink>
+        </ListItem>
       </List>
     </Main>
 
